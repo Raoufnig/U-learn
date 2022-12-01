@@ -1,4 +1,23 @@
-<header class="header">
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Begin # DIV Form -->
+      <div id="div-forms">
+        <form id="login-form">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="flaticon-add" aria-hidden="true"></span>
+          </button>
+          <div class="modal-body">
+            <input class="form-control" type="text" placeholder="What you are looking for?" required>
+          </div>
+        </form><!-- End # Login Form -->
+      </div><!-- End # DIV Form -->
+    </div>
+  </div>
+</div>
+<!-- END # MODAL LOGIN -->
+
+<header class="header header-normal">
   <div class="topbar clearfix">
     <div class="container">
       <div class="row-fluid">
@@ -22,7 +41,7 @@
   </div><!-- end topbar -->
 
   <div class="container">
-    <nav class="navbar navbar-default yamm detail ">
+    <nav class="navbar navbar-default yamm">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
@@ -30,8 +49,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div class="logo-normal" >
-          <a class="navbar-brand" href="index.html" style="font-weight:700"><p style="color:#01bacf">U-LEARN</a>
+        <div class="logo-normal">
+          <a class="navbar-brand" href="index.html"><img src="images/logo-dark.png" alt=""></a>
         </div>
       </div>
 
@@ -45,16 +64,8 @@
                   <div class="row-fluid">
                     <div class="col-md-6 col-sm-6">
                       <h4>Course Pages</h4>
-                      <ul>
-                        <li><a href="#">Courses Name 01</a></li>
-                        <li><a href="#">Courses Name 02</a></li>
-                        <li><a href="#">Courses Name 03</a></li>
-                        <li><a href="#">Courses Name 04</a></li>
-                        <li><a href="#">Courses Name 05</a></li>
-                        <li><a href="#">Courses Name 06</a></li>
-                        <li><a href="#">Courses Name 07</a></li>
-                        <li><a href="#">Courses Name 08</a></li>
-                        <li><a href="#">Courses Name 09</a></li>
+                      <ul *ngFor="let categorie of categories">
+                        <li><a href="#" [routerLink]="['/liste-formation',categorie.id]" (click)="toPage(categorie)">{{categorie.name}}</a></li>
                       </ul>
                     </div>
                     <div class="col-md-6 col-sm-6">

@@ -25,7 +25,6 @@
     </div>
   </div>
   <!-- END # MODAL LOGIN -->
-
   <header class="header">
     <div class="topbar clearfix">
       <div class="container">
@@ -50,7 +49,7 @@
     </div><!-- end topbar -->
 
     <div class="container">
-      <nav class="navbar navbar-default yamm">
+      <nav class="navbar navbar-default yamm detail ">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -130,6 +129,7 @@
     </div><!-- end container -->
   </header>
 
+
   <section id="home" class="video-section js-height-full" style="">
     <div class="overlay"></div>
     <div class="home-text-wrapper relative container">
@@ -204,27 +204,27 @@
         <p>Des cours de qualités totalement à jours et donné par des professionnel  </p>
       </div><!-- end title -->
 
-      <div id="owl-01" class="owl-carousel owl-theme owl-theme-01">
-        <div class="caro-item">
+      <div id="owl-01" class="owl-carousel owl-theme owl-theme-01" style="display:flex;gap:10px">
+        <div class="caro-item" *ngFor="let formation of formations" >
           <div class="course-box">
             <div class="image-wrap entry">
-              <img src="assets/images/prettyPhoto/faisal-BI465ksrlWs-unsplash.jpg" alt="" class="img-responsive">
+              <img [src]="formation.image_url" alt="" class="img-responsive">
               <div class="magnifier">
-                <a href="#" title=""></a>
+                <a [routerLink]="['/detail-formation',formation.name]" (click)="toPage(formation)" title=""></a>
               </div>
             </div><!-- end image-wrap -->
             <div class="course-details">
               <h4>
-                <small>Javascript</small>
-                <a href="#" title="">Modern JavaScript Linting With ESLint</a>
+                <small></small><small style="color:#b2dba1">{{formation.status}}</small>
+                <a (click)="toPage(formation)" title="">{{formation.name}}</a>
               </h4>
-              <p>Fusce interdum, elit sit amet vehicula malesuada, eros libero elementum orci.</p>
+              <p>{{formation.description}}</p>
             </div><!-- end details -->
             <div class="course-footer clearfix">
               <div class="pull-left">
                 <ul class="list-inline">
                   <li><a href="#"><i class="fa fa-user"></i> 21</a></li>
-                  <li><a href="#"><i class="fa fa-clock-o"></i> 15 Min.</a></li>
+                  <li><a href="#"><i class="fa fa-clock-o"></i> {{formation.duration}} H.</a></li>
                 </ul>
               </div><!-- end left -->
 
@@ -236,135 +236,136 @@
             </div><!-- end footer -->
           </div><!-- end box -->
         </div><!-- end col -->
+      </div>
+<!--        <div class="caro-item">-->
+<!--          <div class="course-box">-->
+<!--            <div class="image-wrap entry">-->
+<!--              <img src="assets/images/prettyPhoto/jackson-sophat-TQ3SgrW9lkM-unsplash.jpg" alt="" class="img-responsive">-->
+<!--              <div class="magnifier">-->
+<!--                <a href="#" title=""><i class="flaticon-add"></i></a>-->
+<!--              </div>-->
+<!--            </div>&lt;!&ndash; end image-wrap &ndash;&gt;-->
+<!--            <div class="course-details">-->
+<!--              <h4>-->
+<!--                <small>Design</small><small style="color:#b2dba1">Coming soon</small>-->
+<!--                <a href="#" title="">Designing Game UI Assets in Adobe Illustrator</a>-->
+<!--              </h4>-->
+<!--              <p>Curabitur condimentum velit non odio mattis tristique. Nam vitae orci aliquam. </p>-->
+<!--            </div>&lt;!&ndash; end details &ndash;&gt;-->
+<!--            <div class="course-footer clearfix">-->
+<!--              <div class="pull-left">-->
+<!--                <ul class="list-inline">-->
+<!--                  <li><a href="#"><i class="fa fa-user"></i> 41</a></li>-->
+<!--                  <li><a href="#"><i class="fa fa-clock-o"></i> 33 Min.</a></li>-->
+<!--                </ul>-->
+<!--              </div>&lt;!&ndash; end left &ndash;&gt;-->
 
-        <div class="caro-item">
-          <div class="course-box">
-            <div class="image-wrap entry">
-              <img src="assets/images/prettyPhoto/jackson-sophat-TQ3SgrW9lkM-unsplash.jpg" alt="" class="img-responsive">
-              <div class="magnifier">
-                <a href="#" title=""><i class="flaticon-add"></i></a>
-              </div>
-            </div><!-- end image-wrap -->
-            <div class="course-details">
-              <h4>
-                <small>Design</small>
-                <a href="#" title="">Designing Game UI Assets in Adobe Illustrator</a>
-              </h4>
-              <p>Curabitur condimentum velit non odio mattis tristique. Nam vitae orci aliquam. </p>
-            </div><!-- end details -->
-            <div class="course-footer clearfix">
-              <div class="pull-left">
-                <ul class="list-inline">
-                  <li><a href="#"><i class="fa fa-user"></i> 41</a></li>
-                  <li><a href="#"><i class="fa fa-clock-o"></i> 33 Min.</a></li>
-                </ul>
-              </div><!-- end left -->
+<!--              <div class="pull-right">-->
+<!--                <ul class="list-inline">-->
+<!--                  <li><a href="#">$55.00</a></li>-->
+<!--                </ul>-->
+<!--              </div>&lt;!&ndash; end left &ndash;&gt;-->
+<!--            </div>&lt;!&ndash; end footer &ndash;&gt;-->
+<!--          </div>&lt;!&ndash; end box &ndash;&gt;-->
+<!--        </div>&lt;!&ndash; end col &ndash;&gt;-->
 
-              <div class="pull-right">
-                <ul class="list-inline">
-                  <li><a href="#">$55.00</a></li>
-                </ul>
-              </div><!-- end left -->
-            </div><!-- end footer -->
-          </div><!-- end box -->
-        </div><!-- end col -->
+<!--        <div class="caro-item">-->
+<!--          <div class="course-box">-->
+<!--            <div class="image-wrap entry">-->
+<!--              <img src="assets/images/prettyPhoto/ben-griffiths-Bj6ENZDMSDY-unsplash.jpg" alt="" class="img-responsive">-->
+<!--              <div class="magnifier">-->
+<!--                <a href="#" title=""></a>-->
+<!--              </div>-->
+<!--            </div>&lt;!&ndash; end image-wrap &ndash;&gt;-->
+<!--            <div class="course-details">-->
+<!--              <h4>-->
+<!--                <small>PHP Coding</small><small style="color:#b2dba1">Coming soon</small>-->
+<!--                <a href="#" title="">How to Become a Web Developer: Learn PHP</a>-->
+<!--              </h4>-->
+<!--              <p>Donec auctor nec nibh sit amet pulvinar. Mauris nulla elit, lacinia ac facilisis mattis.</p>-->
+<!--            </div>&lt;!&ndash; end details &ndash;&gt;-->
+<!--            <div class="course-footer clearfix">-->
+<!--              <div class="pull-left">-->
+<!--                <ul class="list-inline">-->
+<!--                  <li><a href="#"><i class="fa fa-user"></i> 35</a></li>-->
+<!--                  <li><a href="#"><i class="fa fa-clock-o"></i> 1 Hrs.</a></li>-->
+<!--                </ul>-->
+<!--              </div>&lt;!&ndash; end left &ndash;&gt;-->
 
-        <div class="caro-item">
-          <div class="course-box">
-            <div class="image-wrap entry">
-              <img src="assets/images/prettyPhoto/ben-griffiths-Bj6ENZDMSDY-unsplash.jpg" alt="" class="img-responsive">
-              <div class="magnifier">
-                <a href="#" title=""></a>
-              </div>
-            </div><!-- end image-wrap -->
-            <div class="course-details">
-              <h4>
-                <small>PHP Coding</small>
-                <a href="#" title="">How to Become a Web Developer: Learn PHP</a>
-              </h4>
-              <p>Donec auctor nec nibh sit amet pulvinar. Mauris nulla elit, lacinia ac facilisis mattis.</p>
-            </div><!-- end details -->
-            <div class="course-footer clearfix">
-              <div class="pull-left">
-                <ul class="list-inline">
-                  <li><a href="#"><i class="fa fa-user"></i> 35</a></li>
-                  <li><a href="#"><i class="fa fa-clock-o"></i> 1 Hrs.</a></li>
-                </ul>
-              </div><!-- end left -->
+<!--              <div class="pull-right">-->
+<!--                <ul class="list-inline">-->
+<!--                  <li><a href="#">$51.00</a></li>-->
+<!--                </ul>-->
+<!--              </div>&lt;!&ndash; end left &ndash;&gt;-->
+<!--            </div>&lt;!&ndash; end footer &ndash;&gt;-->
+<!--          </div>&lt;!&ndash; end box &ndash;&gt;-->
+<!--        </div>&lt;!&ndash; end col &ndash;&gt;-->
 
-              <div class="pull-right">
-                <ul class="list-inline">
-                  <li><a href="#">$51.00</a></li>
-                </ul>
-              </div><!-- end left -->
-            </div><!-- end footer -->
-          </div><!-- end box -->
-        </div><!-- end col -->
+<!--        <div class="caro-item">-->
+<!--          <div class="course-box">-->
+<!--            <div class="image-wrap entry">-->
+<!--              <img src="assets/images/prettyPhoto/greg-rakozy-vw3Ahg4x1tY-unsplash.jpg" alt="" class="img-responsive">-->
+<!--              <div class="magnifier">-->
+<!--                <a href="#" title=""><i class="flaticon-add"></i></a>-->
+<!--              </div>-->
+<!--            </div>&lt;!&ndash; end image-wrap &ndash;&gt;-->
+<!--            <div class="course-details">-->
+<!--              <h4>-->
+<!--                <small>JAVASCIPT Coding</small><small style="color:#b2dba1">Coming soon</small>-->
+<!--                <a href="#" title="">Modern JavaScript Linting With ESLint</a>-->
+<!--              </h4>-->
+<!--              <p>Pellentesque ut enim dictum, interdum lorem eget, vulputate eros sed felis euismod.</p>-->
+<!--            </div>&lt;!&ndash; end details &ndash;&gt;-->
+<!--            <div class="course-footer clearfix">-->
+<!--              <div class="pull-left">-->
+<!--                <ul class="list-inline">-->
+<!--                  <li><a href="#"><i class="fa fa-user"></i> 35</a></li>-->
+<!--                  <li><a href="#"><i class="fa fa-clock-o"></i> 45 Min.</a></li>-->
+<!--                </ul>-->
+<!--              </div>&lt;!&ndash; end left &ndash;&gt;-->
 
-        <div class="caro-item">
-          <div class="course-box">
-            <div class="image-wrap entry">
-              <img src="assets/images/prettyPhoto/greg-rakozy-vw3Ahg4x1tY-unsplash.jpg" alt="" class="img-responsive">
-              <div class="magnifier">
-                <a href="#" title=""><i class="flaticon-add"></i></a>
-              </div>
-            </div><!-- end image-wrap -->
-            <div class="course-details">
-              <h4>
-                <small>PHP Coding</small>
-                <a href="#" title="">Modern JavaScript Linting With ESLint</a>
-              </h4>
-              <p>Pellentesque ut enim dictum, interdum lorem eget, vulputate eros sed felis euismod.</p>
-            </div><!-- end details -->
-            <div class="course-footer clearfix">
-              <div class="pull-left">
-                <ul class="list-inline">
-                  <li><a href="#"><i class="fa fa-user"></i> 35</a></li>
-                  <li><a href="#"><i class="fa fa-clock-o"></i> 45 Min.</a></li>
-                </ul>
-              </div><!-- end left -->
+<!--              <div class="pull-right">-->
+<!--                <ul class="list-inline">-->
+<!--                  <li><a href="#">$51.00</a></li>-->
+<!--                </ul>-->
+<!--              </div>&lt;!&ndash; end left &ndash;&gt;-->
+<!--            </div>&lt;!&ndash; end footer &ndash;&gt;-->
+<!--          </div>&lt;!&ndash; end box &ndash;&gt;-->
+<!--        </div>&lt;!&ndash; end col &ndash;&gt;-->
 
-              <div class="pull-right">
-                <ul class="list-inline">
-                  <li><a href="#">$51.00</a></li>
-                </ul>
-              </div><!-- end left -->
-            </div><!-- end footer -->
-          </div><!-- end box -->
-        </div><!-- end col -->
+<!--        <div class="caro-item">-->
+<!--          <div class="course-box">-->
+<!--            <div class="image-wrap entry">-->
+<!--              <img src="assets/upload/course_01.jpg" alt="" class="img-responsive">-->
+<!--              <div class="magnifier">-->
+<!--                <a href="#" title=""><i class="flaticon-add"></i></a>-->
+<!--              </div>-->
+<!--            </div>&lt;!&ndash; end image-wrap &ndash;&gt;-->
+<!--            <div class="course-details">-->
+<!--              <h4>-->
+<!--                <small>Javascript</small>-->
+<!--                <a routerLink="detail-formation" title="">Modern JavaScript Linting With ESLint</a>-->
+<!--              </h4>-->
+<!--              <p>Fusce interdum, elit sit amet vehicula malesuada, eros libero elementum orci.</p>-->
+<!--            </div>&lt;!&ndash; end details &ndash;&gt;-->
+<!--            <div class="course-footer clearfix">-->
+<!--              <div class="pull-left">-->
+<!--                <ul class="list-inline">-->
+<!--                  <li><a href="#"><i class="fa fa-user"></i> 21</a></li>-->
+<!--                  <li><a href="#"><i class="fa fa-clock-o"></i> 15 Min.</a></li>-->
+<!--                </ul>-->
+<!--              </div>&lt;!&ndash; end left &ndash;&gt;-->
 
-        <div class="caro-item">
-          <div class="course-box">
-            <div class="image-wrap entry">
-              <img src="assets/upload/course_01.jpg" alt="" class="img-responsive">
-              <div class="magnifier">
-                <a href="#" title=""><i class="flaticon-add"></i></a>
-              </div>
-            </div><!-- end image-wrap -->
-            <div class="course-details">
-              <h4>
-                <small>Javascript</small>
-                <a href="#" title="">Modern JavaScript Linting With ESLint</a>
-              </h4>
-              <p>Fusce interdum, elit sit amet vehicula malesuada, eros libero elementum orci.</p>
-            </div><!-- end details -->
-            <div class="course-footer clearfix">
-              <div class="pull-left">
-                <ul class="list-inline">
-                  <li><a href="#"><i class="fa fa-user"></i> 21</a></li>
-                  <li><a href="#"><i class="fa fa-clock-o"></i> 15 Min.</a></li>
-                </ul>
-              </div><!-- end left -->
+<!--              <div class="pull-right">-->
+<!--                <ul class="list-inline">-->
+<!--                  <li><a href="#">$22.00</a></li>-->
+<!--                </ul>-->
+<!--              </div>&lt;!&ndash; end left &ndash;&gt;-->
+<!--            </div>&lt;!&ndash; end footer &ndash;&gt;-->
+<!--          </div>&lt;!&ndash; end box &ndash;&gt;-->
+<!--        </div>&lt;!&ndash; end col &ndash;&gt;-->
 
-              <div class="pull-right">
-                <ul class="list-inline">
-                  <li><a href="#">$22.00</a></li>
-                </ul>
-              </div><!-- end left -->
-            </div><!-- end footer -->
-          </div><!-- end box -->
-        </div><!-- end col -->
-      </div><!-- end row -->
+<!-- </div>-->
 
       <hr class="invis">
 
@@ -475,7 +476,7 @@
     <div class="container">
       <div class="section-title text-center">
         <h3>Testimonials</h3>
-        <p>Maecenas sit amet tristique turpis. Quisque porttitor eros quis leo pulvinar, at hendrerit sapien iaculis. Donec consectetur accumsan arcu, sit amet fringilla ex ultricies.</p>
+        <p>They trusted us, we took ou couses and we wee successful in the world of employment</p>
       </div><!-- end title -->
 
       <div class="row">
@@ -611,9 +612,9 @@
     <div class="container">
       <div class="clearfix">
         <div class="pull-left">
-          <div class="cop-logo">
-            <a href="#"><img src="assets/images/logo.png" alt=""></a>
-          </div>
+<!--          <div class="cop-logo">-->
+<!--            <a href="#"><img src="assets/images/logo.png" alt=""></a>-->
+<!--          </div>-->
         </div>
 
         <div class="pull-right">

@@ -17,7 +17,9 @@ IMPORT
     src: url("src/assets/fonts/Flaticon.svg#Flaticon") format("svg");
   }
 }
-
+.u-mt-10{
+  margin-top: 100px ;
+}
 [class^="flaticon-"]:before,
 [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after,
@@ -244,7 +246,7 @@ HEADER
 }
 
 .header-normal .navbar-default .nav>li>a {
-  color: #848484 !important;
+  color: #848484 ;
 }
 
 .header.affix {
@@ -275,7 +277,7 @@ HEADER
 }
 
 .navbar-default .nav>li>a {
-  color: #fff !important;
+  color: #fff ;
   text-transform: capitalize;
   font-size: 15px;
   font-weight: 500;
