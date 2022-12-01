@@ -20,7 +20,11 @@ const routes: Routes = [
   {path:'detail-formation',component: DetailFormationComponent},
   {path:'liste-formation',component:ListeFormationComponent},
   {path:'all-formation',component:AllFormationsComponent},
-  {path:'liste-formation/:id',component:ListeFormationComponent}
+  {path:'liste-formation/:id',component:ListeFormationComponent},
+
+  {path : "" ,
+   redirectTo:"",
+   pathMatch:'full'}
 ];
 
 @NgModule({
@@ -28,4 +32,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const RoutingComponent = [ RegistrationComponent, ProfileComponent, HomepageComponent]
+export const RoutingComponent = [LoginComponent, RegistrationComponent, ProfileComponent, HomepageComponent]

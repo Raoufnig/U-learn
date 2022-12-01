@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CategoriesService} from "../services/categories.service";
-import {TrainingService} from "../services/training.service";
+import {TrainingService} from "../Services/training.service";
 import {Training} from "../models/training";
 import {Router} from "@angular/router";
 

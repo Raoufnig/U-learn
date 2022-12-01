@@ -55,7 +55,9 @@ export class LoginComponent implements OnInit {
     window.location.reload();
   }
  
-
+  gotopage(){
+    this.router.navigate(['/profile'])
+  }
 
 
 }
