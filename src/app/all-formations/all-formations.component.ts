@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CategoriesService} from "../services/categories.service";
+import {CategoriesService} from '../services/categories.service';
 import {Router} from "@angular/router";
-import {Categories} from "../models/categories";
+import {Categories} from '../models/categories';
 
 @Component({
   selector: 'app-all-formations',
@@ -24,7 +24,7 @@ export class AllFormationsComponent implements OnInit {
   getCategories(){
     this.categorieservice.getCategories('http://127.0.0.1:8000/api/training/')
       .subscribe(
-        items => {
+          (items: any) => {
           this.items=items;
           this.Tformation=this.items.results;
           console.log(this.Tformation);
