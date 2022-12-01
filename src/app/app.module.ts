@@ -10,6 +10,7 @@ import { AccueilModule } from './accueil/accueil.module';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { ListeFormationComponent } from './liste-formation/liste-formation.component';
 import { AppNavBlackComponent } from './nav-black/app-nav-black.component';
+import { AllFormationsComponent } from './all-formations/all-formations.component';
 // @ts-ignore
 // @ts-ignore
 @NgModule({
@@ -19,7 +20,8 @@ import { AppNavBlackComponent } from './nav-black/app-nav-black.component';
     NavComponent,
     DetailFormationComponent,
     ListeFormationComponent,
-    AppNavBlackComponent
+    AppNavBlackComponent,
+    AllFormationsComponent
   ],
   imports: [
     BrowserModule,

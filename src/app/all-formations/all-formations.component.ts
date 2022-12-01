@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {Categories} from "../models/categories";
 import {CategoriesService} from "../services/categories.service";
 import {Router} from "@angular/router";
+import {Categories} from "../models/categories";
 
 @Component({
-  selector: 'app-liste-formation',
-  templateUrl: './liste-formation.component.html',
-  styleUrls: ['./liste-formation.component.css']
+  selector: 'app-all-formations',
+  templateUrl: './all-formations.component.html',
+  styleUrls: ['./all-formations.component.css']
 })
-export class ListeFormationComponent implements OnInit {
+export class AllFormationsComponent implements OnInit {
+
 
   constructor(private categorieservice: CategoriesService,private router:Router) { }
   Tformation:any;
   categorie= new Categories();
   items:any;
-  formation:any;
   ngOnInit(): void {
     const a=localStorage.getItem('categorie');
     // @ts-ignore
@@ -26,11 +26,9 @@ export class ListeFormationComponent implements OnInit {
       .subscribe(
         items => {
           this.items=items;
-          this.formation=this.items.results;
-          console.log(this.formation);
-          // @ts-ignore
-          this.Tformation=this.formation.filter((item => item.category === this.categorie.id));
+          this.Tformation=this.items.results;
           console.log(this.Tformation);
+          // @ts-ignore
         }
       );
   }
