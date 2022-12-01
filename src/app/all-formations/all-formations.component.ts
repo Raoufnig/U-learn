@@ -12,6 +12,7 @@ export class AllFormationsComponent implements OnInit {
 
 
   constructor(private categorieservice: CategoriesService,private router:Router) { }
+
   Tformation:any;
   categorie= new Categories();
   items:any;

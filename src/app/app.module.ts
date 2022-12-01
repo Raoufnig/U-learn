@@ -15,7 +15,8 @@ import { ProfileComponent } from './Pages/profile/profile.component';
 import { RegistrationComponent } from './Pages/registration/registration.component';
 import { HomepageComponent } from './Pages/homepage/homepage.component';
 import { FormsModule } from '@angular/forms';
-import { authInterceptorProviders } from './Services/auth-interceptor.service';
+import { authInterceptorProviders } from './services/auth-interceptor.service';
+import { FooterComponent } from './footer/footer.component';
 // @ts-ignore
 // @ts-ignore
 @NgModule({
@@ -30,7 +31,8 @@ import { authInterceptorProviders } from './Services/auth-interceptor.service';
     LoginComponent,
     RegistrationComponent,
     ProfileComponent,
-    HomepageComponent
+    HomepageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
