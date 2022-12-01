@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccueilComponent } from './accueil/accueil.component';
@@ -11,6 +10,12 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { ListeFormationComponent } from './liste-formation/liste-formation.component';
 import { AppNavBlackComponent } from './nav-black/app-nav-black.component';
 import { AllFormationsComponent } from './all-formations/all-formations.component';
+import { LoginComponent } from './Pages/login/login.component';
+import { ProfileComponent } from './Pages/profile/profile.component';
+import { RegistrationComponent } from './Pages/registration/registration.component';
+import { HomepageComponent } from './Pages/homepage/homepage.component';
+import { FormsModule } from '@angular/forms';
+import { authInterceptorProviders } from './Services/auth-interceptor.service';
 // @ts-ignore
 // @ts-ignore
 @NgModule({
@@ -21,15 +26,20 @@ import { AllFormationsComponent } from './all-formations/all-formations.componen
     DetailFormationComponent,
     ListeFormationComponent,
     AppNavBlackComponent,
-    AllFormationsComponent
+    AllFormationsComponent,
+    LoginComponent,
+    RegistrationComponent,
+    ProfileComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AccueilModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [HttpClient],
+  providers: [HttpClient,authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

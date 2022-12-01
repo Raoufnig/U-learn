@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {NavComponent} from "./nav/nav.component";
+import { HomepageComponent } from './Pages/homepage/homepage.component';
+import { LoginComponent } from './Pages/login/login.component';
+import { ProfileComponent } from './Pages/profile/profile.component';
+import { RegistrationComponent } from './Pages/registration/registration.component';
+import {NavComponent} from './nav/nav.component';
 import {AccueilComponent} from "./accueil/accueil.component";
 import {DetailFormationComponent} from "./detail-formation/detail-formation.component";
-import {ListeFormationComponent} from "./liste-formation/liste-formation.component";
+import {ListeFormationComponent} from './liste-formation/liste-formation.component';
 import {AllFormationsComponent} from "./all-formations/all-formations.component";
 
 const routes: Routes = [
+  {path:"profile" , component:ProfileComponent},
+  {path:"login" , component:LoginComponent},
+  {path:"registration" , component:RegistrationComponent},
+  {path: "homepage", component:HomepageComponent},
   {path:'nav',component:NavComponent},
   {path:'',component: AccueilComponent},
   {path:'detail-formation',component: DetailFormationComponent},
@@ -20,3 +28,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const RoutingComponent = [ RegistrationComponent, ProfileComponent, HomepageComponent]
